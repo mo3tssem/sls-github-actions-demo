@@ -27,18 +27,15 @@ const generatePolicy = (principalId, effect, resource) => {
   authReponse.context = {
     foo: "bar",
   };
-  console.log(JSON.stringify(authReponse));
   return authReponse;
 };
 
 exports.handler = async (event, context, callback) => {
   // lambda authorizer code
   var token = event.authorizationToken;
-  console.log(token);
   // Validate the token
   try {
     const payload = await jwtVerifier.verify(token);
-    console.log(JSON.stringify(payload));
     callback(null, generatePolicy("user", "Allow", event.methodArn));
   } catch(err) {
     callback("Error: Invalid token");

@@ -16,6 +16,10 @@
   },
   "devDependencies": {
     "jest": "^29.5.0",
-    "serverless-iam-roles-per-function": "^3.2.0"
+    "lodash": "^4.17.21",
+    "promise": "^8.3.0",
+    "serverless-iam-roles-per-function": "^3.2.0",
+    "superagent": "^8.0.9",
+    "superagent-promise": "^1.1.0"
   }
 }
