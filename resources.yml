@@ -41,7 +41,7 @@ cognitoUserPoolDoamin:
   Type: AWS::Cognito::UserPoolDomain
   Properties:
     UserPoolId: !Ref cognitoUserPool
-    Domain: mynotescd-${self:provider.stage}
+    Domain: mynotescd-${self:provider.stage}-mo3
 
 # Application parameters
 userPoolArnParam:
