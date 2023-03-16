@@ -15,7 +15,7 @@ const makeHttpRequest = async (path, method, options) => {
     let url = method == "POST" ? `${root}/${path}` : `${root}/${path}/${item_id}`; 
     console.log("options:::::", options)
     console.log("note:::::", note)
-    console.log("url:::::", url)
+    console.log("url::::: ", url)
     console.log("idToken::::", idToken)
     try {
 
