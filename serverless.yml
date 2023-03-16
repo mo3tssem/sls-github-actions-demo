@@ -76,6 +76,7 @@ functions:
           # authorizer:
           #   name: userpool_authorizer
           #   arn: ${ssm:/notes/${self:provider.stage}/userPoolArn}
+          #
 
 plugins:
   - serverless-iam-roles-per-function
