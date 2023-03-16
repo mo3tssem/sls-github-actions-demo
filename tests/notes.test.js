@@ -1,7 +1,7 @@
 'use strict';
 let init = require('./steps/init');
 let {an_authenticated_user} = require('./steps/given');
-let {we_invoke_createNote, we_invoke_updateNote} = require('./steps/when');
+let {we_invoke_createNote, we_invoke_updateNote,we_invoke_deleteNote} = require('./steps/when');
 let item_id = '0001'
 let idToken = null;
 
@@ -13,9 +13,6 @@ describe('Given an authenticated user', () => {
     idToken = user.AuthenticationResult.IdToken;
     });
 
-    console.log("idToken", idToken)
-
-
     describe('And I create a note', () => {
 
         it('should create a new note', async () => {
@@ -23,9 +20,8 @@ describe('Given an authenticated user', () => {
                 'id': item_id,
                 'title': 'Hello World',
                 'body': 'hello this is a test note',
-                'idToken': idToken
             };
-            let response = await we_invoke_createNote(note);
+            let response = await we_invoke_createNote({note,idToken});
             expect(response.statusCode).toEqual(201);
             expect(response.body).not.toBeNull();
         
@@ -38,12 +34,11 @@ describe('Given an authenticated user', () => {
 
             it('should update  a new note', async () => {
                 const note = {
-                    'noteId': item_id,
+                    'id': item_id,
                     'title': 'updated title',
                     'body': 'updated notes body this is a test note',
-                    'idToken': idToken
                 };
-                let response = await we_invoke_updateNote(note, item_id);
+                let response = await we_invoke_updateNote({note, item_id,idToken});
                 expect(response.statusCode).toEqual(200);
                 expect(response.body).not.toBeNull();
             
@@ -52,5 +47,18 @@ describe('Given an authenticated user', () => {
 
     });
 
+    
+    describe('And I delete a note', () => {
+
+        it('should update  a new note', async () => {
+       
+            let response = await we_invoke_deleteNote({item_id,idToken});
+            expect(response.statusCode).toEqual(200);
+            expect(response.body).not.toBeNull();
+
 });
+  });
+});
+
+
 });
