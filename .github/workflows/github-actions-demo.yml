@@ -11,6 +11,15 @@ jobs:
     environment:
       name: Production
       url: https://test.com
+
+    env:
+      AWS_IAM_USERNAME: ${{ secrets.AWS_IAM_USERNAME }}
+      AWS_IAM_PASSWORD: ${{ secrets.AWS_IAM_PASSWORD }}
+      TEST_ROOT: "https://oqkhsejiei.execute-api.us-east-1.amazonaws.com/production"
+      USER_POOL_ID: "us-east-1_GctS6bfXX"
+      CLIENT_ID: "7jr7cp2e2dbr5g078rlgu1vls5"
+
+
     strategy:
       matrix:
         node-version: [14.x]

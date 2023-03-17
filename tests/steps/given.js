@@ -8,7 +8,7 @@ exports.an_authenticated_user = async () => {
     const userPoolId = process.env.USER_POOL_ID;
     const clientId = process.env.CLIENT_ID;
     const username = process.env.AWS_IAM_USERNAME;
-    const password = process.env.PASSWORD;
+    const password = process.env.AWS_IAM_PASSWORD;
     const params = {
         UserPoolId: userPoolId,
         ClientId: clientId,
